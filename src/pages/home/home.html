@@ -1,0 +1,30 @@
+<ion-header class="nav-header">
+  <ion-navbar>
+    <ion-title>
+      <p style="color:white">Unvired REST Sample</p>
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only class="nav-header" (click)="menuButtonClicked()">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="container-div">
+    <input type="text" placeholder="City" class="input" [(ngModel)]="cityName" autocapitalize="off" /><br><br>
+    <div>
+      <button ion-button round class="button">Get Weather</button>
+    </div>
+    <div class="info-div">
+      <br>
+      <label class="label">Description</label><br>
+      <label class="value">Description</label><br><br>
+      <label class="label">Temperature</label><br>
+      <label class="value">Temperature</label><br><br>
+      <label class="label">Humidity</label><br>
+      <label class="value">Humidity</label><br><br>
+    </div>
+  </div>
+</ion-content>
