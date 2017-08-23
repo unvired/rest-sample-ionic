@@ -20,7 +20,7 @@ export class HomePage {
         {
           text: 'Settings',
           handler: () => {
-            console.log('Destructive clicked');
+            console.log('Settings clicked');
           }
         }, {
           text: 'Cancel',
