@@ -3,7 +3,7 @@ Ionic sample application integrating with REST based systems
 
 ```
 $ ionic info
-system information:
+Your system information:
 
 Cordova CLI: 6.5.0 
 Ionic CLI Version: 2.2.2
