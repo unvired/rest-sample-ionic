@@ -1,6 +1,8 @@
 # rest-sample-ionic
 Ionic sample application integrating with REST based systems
 
+```
+$ ionic info
 system information:
 
 Cordova CLI: 6.5.0 
@@ -11,3 +13,4 @@ ios-sim version: 6.0.0
 OS: macOS Sierra
 Node Version: v7.9.0
 Xcode version: Xcode 8.3.3 Build version 8E3004b
+```
