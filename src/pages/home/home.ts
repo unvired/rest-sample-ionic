@@ -14,8 +14,6 @@ import { AppConstant } from "../../constants/appConstant";
 export class HomePage {
   private cityName: string = ""
   private showWeatherInfo: boolean = false;
-  private weatherHeader: WEATHER_HEADER = <WEATHER_HEADER>{}
-
 
   constructor(public navCtrl: NavController,
     public actionSheetCtrl: ActionSheetController,
@@ -49,9 +47,14 @@ export class HomePage {
       return
     }
 
-    this.weatherHeader.CITY = this.cityName
-    alert("Input:" + JSON.stringify(this.weatherHeader))
-    ump.sync.submitInSync(ump.sync.requestType.PULL, this.weatherHeader, null, AppConstant.PA_GET_WEATHER, true, function (result) {
+    var weatherHeader = new WEATHER_HEADER()
+    weatherHeader.CITY = this.cityName
+    
+    var inputHeader = {}
+    inputHeader["WEATHER_HEADER"] = weatherHeader
+    alert("Input:" + JSON.stringify(inputHeader))
+
+    ump.sync.submitInSync(ump.sync.requestType.PULL, inputHeader, null, AppConstant.PA_GET_WEATHER, true, function (result) {
       alert("Response from server: " + JSON.stringify(result))
       if (result.type === ump.resultType.success) {
         alert('Success:' + JSON.stringify(result))
