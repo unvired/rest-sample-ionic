@@ -2,4 +2,7 @@
 *.perspectivev3
 *.pbxuser
 .DS_Store
+xc
 build/
+xcuserdata/
+xcshareddata/

@@ -27,6 +27,21 @@
                         {
                             "xml": "<feature name=\"SplashScreen\"><param name=\"android-package\" value=\"org.apache.cordova.splashscreen.SplashScreen\" /><param name=\"onload\" value=\"true\" /></feature>",
                             "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"DatabasePlugin\"><param name=\"android-package\" value=\"com.unvired.plugin.AndroidDatabasePlugin\" /></feature>"
+                        },
+                        {
+                            "xml": "<feature name=\"LoggerPlugin\"><param name=\"android-package\" value=\"com.unvired.plugin.AndroidLoggerPlugin\" /></feature>"
+                        },
+                        {
+                            "xml": "<feature name=\"SyncEnginePlugin\"><param name=\"android-package\" value=\"com.unvired.plugin.AndroidSyncEnginePlugin\" /></feature>"
+                        },
+                        {
+                            "xml": "<feature name=\"SettingsPlugin\"><param name=\"android-package\" value=\"com.unvired.plugin.AndroidSettingsPlugin\" /></feature>"
+                        },
+                        {
+                            "xml": "<feature name=\"LoginPlugin\"><param name=\"android-package\" value=\"com.unvired.plugin.AndroidLoginPlugin\" /></feature>"
                         }
                     ]
                 }

@@ -1,15 +1,19 @@
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { Platform, App, NavController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
-import { HomePage } from '../pages/home/home';
+import { Login } from "../pages/login/login";
+import { HomePage } from "../pages/home/home";
+import { AppConstant } from "../constants/appConstant";
+import { Nav } from "ionic-angular/navigation/nav-interfaces";
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
 })
 export class MyApp {
-  rootPage: any = HomePage;
+  rootPage: any;
+  @ViewChild('myNav') nav;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
@@ -17,6 +21,22 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
+
+      ump.login.parameters.appName = AppConstant.APPLICATION_NAME
+
+      ump.login.login((result: any) => {
+        alert("Response: " + JSON.stringify(result))
+        if (result.type === ump.login.listenerType.auth_activation_required) {
+          console.log("Required Authentication and Activation....")
+          this.nav.setRoot(Login, { isAuthenticationSuccess: false })
+        } else if (result.type === ump.login.listenerType.app_requires_login) {
+          console.log("Required Authentication Local....")
+          this.nav.setRoot(Login, { isAuthenticationSuccess: true })
+        }  else {
+          console.log("Load Home Screen....")
+          this.rootPage = HomePage
+        }
+      })
     });
   }
 }

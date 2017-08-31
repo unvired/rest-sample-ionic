@@ -7,11 +7,14 @@ import { HomePage } from '../pages/home/home';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Login } from "../pages/login/login";
+import { Device } from "@ionic-native/device";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
+    Login
   ],
   imports: [
     BrowserModule,
@@ -20,11 +23,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    Login
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    Device,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

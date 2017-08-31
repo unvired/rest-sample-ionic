@@ -15,9 +15,9 @@
   <div class="container-div">
     <input type="text" placeholder="City" class="input" [(ngModel)]="cityName" autocapitalize="off" /><br><br>
     <div>
-      <button ion-button round class="button">Get Weather</button>
+      <button ion-button round class="button" (click)="getweather()">Get Weather</button>
     </div>
-    <div class="info-div">
+    <div *ngIf="showWeatherInfo" class="info-div">
       <br>
       <label class="label">Description</label><br>
       <label class="value">Description</label><br><br>
