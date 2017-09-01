@@ -25,14 +25,13 @@ export class MyApp {
       ump.login.parameters.appName = AppConstant.APPLICATION_NAME
 
       ump.login.login((result: any) => {
-        alert("Response: " + JSON.stringify(result))
         if (result.type === ump.login.listenerType.auth_activation_required) {
           console.log("Required Authentication and Activation....")
           this.nav.setRoot(Login, { isAuthenticationSuccess: false })
         } else if (result.type === ump.login.listenerType.app_requires_login) {
           console.log("Required Authentication Local....")
           this.nav.setRoot(Login, { isAuthenticationSuccess: true })
-        }  else {
+        } else {
           console.log("Load Home Screen....")
           this.rootPage = HomePage
         }

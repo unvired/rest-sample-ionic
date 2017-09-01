@@ -20,9 +20,9 @@ export class Login {
   isAuthenticationSuccess: boolean = false
   isHasPermissions: boolean = false;
   url = "https://sandbox.unvired.io/UMP/"
-  company = "unvired"
-  username = "suman"
-  password = "unvired"
+  company = ""
+  username = ""
+  password = ""
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -30,7 +30,6 @@ export class Login {
     private Loading: LoadingController,
     private device: Device) {
     this.isAuthenticationSuccess = this.navParams.get("isAuthenticationSuccess")
-    alert("isAuthenticationSuccess:" + this.isAuthenticationSuccess)
   }
 
   ionViewDidLoad() {
@@ -79,19 +78,14 @@ export class Login {
     ump.login.parameters.password = this.password
 
     ump.login.login((result: any) => {
-      // alert("Result:" + JSON.stringify(result))
 
       if (result.type === ump.login.listenerType.auth_activation_required) {
-        alert("Activate")
         loading.present();
         this.authenticate()
       } else if (result.type === ump.login.listenerType.app_requires_login) {
-        alert("Authenticate Local")
-        alert("url:" + this.url + " " + "company:" + this.company + " " + "username:" + this.username + "password:" + this.password)
         loading.present();
         this.authenticateLocal()
       } else if (result.type === ump.login.listenerType.auth_activation_success || result.type === ump.login.listenerType.login_success) {
-        alert("Login Success")
         loading.dismiss()
         this.displayHomeScreen()
       } else if (result.type === ump.login.listenerType.auth_activation_error || result.type === ump.login.listenerType.login_error) {
@@ -106,18 +100,16 @@ export class Login {
   authenticate() {
     ump.login.authenticateAndActivate(function (authResult) {
       if (authResult.type === ump.login.listenerType.auth_activation_success) {
-        alert("Authentication sucessfull!!!" + JSON.stringify(authResult))
+
       }
     });
   }
 
   // AuthenticateLocal
   authenticateLocal() {
-    alert("inside authenticateLocal")
     ump.login.authenticateLocal(function (authResult) {
-      alert('Authenticate local result:' + JSON.stringify(authResult))
       if (authResult.type === ump.login.listenerType.login_success) {
-        alert("Authentication sucessfull!!!" + JSON.stringify(authResult))
+
       }
     });
   }
