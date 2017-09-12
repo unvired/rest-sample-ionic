@@ -25,6 +25,7 @@ export class MyApp {
       ump.login.parameters.appName = AppConstant.APPLICATION_NAME
 
       ump.login.login((result: any) => {
+        alert("Result:" + JSON.stringify(result))
         if (result.type === ump.login.listenerType.auth_activation_required) {
           console.log("Required Authentication and Activation....")
           this.nav.setRoot(Login, { isAuthenticationSuccess: false })

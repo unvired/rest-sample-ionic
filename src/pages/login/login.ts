@@ -38,22 +38,23 @@ export class Login {
 
   login() {
 
-    // alert("Device: " + this.device.platform.toLowerCase())
     // if (this.device.platform.toLowerCase() == "android") {
-    //   if (!this.isHasPermissions) {
-    //     this.checkRequiredPermission();
-    //     return;
-    //   }
+    //   // if (!this.isHasPermissions) {
+    //   this.checkRequiredPermission();
+    //   return;
+    //   // }
     // }
 
-    if (!this.url || this.url.trim().length == 0) {
-      this.showAlert("", "Enter Url.");
-      return
-    }
+    if (!this.isAuthenticationSuccess) {
+      if (!this.url || this.url.trim().length == 0) {
+        this.showAlert("", "Enter Url.");
+        return
+      }
 
-    if (!this.company || this.company.trim().length == 0) {
-      this.showAlert("", "Enter Company.")
-      return
+      if (!this.company || this.company.trim().length == 0) {
+        this.showAlert("", "Enter Company.")
+        return
+      }
     }
 
     if (!this.username || this.username.trim().length == 0) {
@@ -77,8 +78,9 @@ export class Login {
     ump.login.parameters.username = this.username
     ump.login.parameters.password = this.password
 
+    alert("Calling login..")
     ump.login.login((result: any) => {
-
+      alert("result" + JSON.stringify(result))
       if (result.type === ump.login.listenerType.auth_activation_required) {
         loading.present();
         this.authenticate()

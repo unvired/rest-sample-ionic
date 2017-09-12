@@ -25,7 +25,9 @@
         "@ionic-native/splash-screen": "^4.2.1",
         "@ionic-native/status-bar": "4.2.1",
         "@ionic/storage": "2.0.1",
+        "cordova-android": "~6.2.3",
         "cordova-ios": "^4.4.0",
+        "cordova-plugin-android-permissions": "^1.0.0",
         "cordova-plugin-console": "1.0.7",
         "cordova-plugin-device": "1.1.6",
         "cordova-plugin-splashscreen": "~4.0.3",
@@ -37,13 +39,12 @@
         "ios-sim": "^6.0.0",
         "rxjs": "5.4.3",
         "sw-toolbox": "3.6.0",
-        "zone.js": "0.8.17",
-        "cordova-android": "~6.2.3"
+        "zone.js": "0.8.17"
     },
     "devDependencies": {
         "@ionic/app-scripts": "2.1.4",
         "typescript": "2.4.2",
-        "unvired-cordova-sdk": "^3.0.52"
+        "unvired-cordova-sdk": "^3.0.61"
     },
     "cordova": {
         "plugins": {
@@ -52,7 +53,8 @@
             "cordova-plugin-splashscreen": {},
             "cordova-plugin-statusbar": {},
             "cordova-plugin-whitelist": {},
-            "ionic-plugin-keyboard": {}
+            "ionic-plugin-keyboard": {},
+            "cordova-plugin-android-permissions": {}
         },
         "platforms": [
             "android",

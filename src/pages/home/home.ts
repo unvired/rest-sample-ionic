@@ -63,9 +63,9 @@ export class HomePage {
     inputHeader["WEATHER_HEADER"] = weatherHeader
     loading.present()
 
-    ump.sync.submitInSync(ump.sync.requestType.PULL, inputHeader, null, AppConstant.PA_GET_WEATHER, true, function (result) {
+    ump.sync.submitInSync(ump.sync.requestType.PULL, inputHeader, null, AppConstant.PA_GET_WEATHER, false, function (result) {
       loading.dismiss()
-
+      console.log("Response from server: " + JSON.stringify(result))
       if (result.type === ump.resultType.success) {
         let jsonObj = result.data
         let weatherObj = jsonObj.WEATHER[0]
@@ -74,7 +74,7 @@ export class HomePage {
         that.showWeatherInfo = true
       }
       else {
-        this.showAlert("Error", result.error)
+        that.showAlert("Error", result.error)
       }
     })
 
