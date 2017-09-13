@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, AlertController, LoadingController } from "ionic-angular";
 import { AppConstant } from "../../constants/appConstant";
 import { HomePage } from "../home/home";
-import { Device } from '@ionic-native/device';
 
 declare var cordova: any;
 /**
@@ -27,8 +26,7 @@ export class Login {
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public alertCtrl: AlertController,
-    private Loading: LoadingController,
-    private device: Device) {
+    private Loading: LoadingController) {
     this.isAuthenticationSuccess = this.navParams.get("isAuthenticationSuccess")
   }
 
@@ -37,13 +35,6 @@ export class Login {
   }
 
   login() {
-
-    // if (this.device.platform.toLowerCase() == "android") {
-    //   // if (!this.isHasPermissions) {
-    //   this.checkRequiredPermission();
-    //   return;
-    //   // }
-    // }
 
     if (!this.isAuthenticationSuccess) {
       if (!this.url || this.url.trim().length == 0) {
@@ -78,9 +69,7 @@ export class Login {
     ump.login.parameters.username = this.username
     ump.login.parameters.password = this.password
 
-    alert("Calling login..")
     ump.login.login((result: any) => {
-      alert("result" + JSON.stringify(result))
       if (result.type === ump.login.listenerType.auth_activation_required) {
         loading.present();
         this.authenticate()
@@ -114,25 +103,6 @@ export class Login {
 
       }
     });
-  }
-
-  // Check for permission
-  checkRequiredPermission() {
-    var permissions = cordova.plugins.permission
-    var list = [
-      permissions.READ_PHONE_STATE,
-      permissions.WRITE_EXTERNAL_STORAGE,
-      permissions.READ_EXTERNAL_STORAGE
-    ]
-    var that = this
-    permissions.requestPermissions(list, function (status) {
-      if (!status.hasPermission) {
-        alert("Permissions required to use this application not granted.Please grant Phone and Storage permissions")
-      } else {
-        that.isHasPermissions = true;
-        that.login();
-      }
-    }, function () { alert("Error while requiesting for permissions.") });
   }
 
   // Present Home Screen 

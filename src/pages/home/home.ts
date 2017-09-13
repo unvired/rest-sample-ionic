@@ -15,37 +15,17 @@ export class HomePage {
   private cityName: string = ""
   private showWeatherInfo: boolean = false;
   private weatherHeraderObj: WEATHER_HEADER = <WEATHER_HEADER>{}
-  
+
   constructor(public navCtrl: NavController,
     public actionSheetCtrl: ActionSheetController,
     public alertCtrl: AlertController,
     private Loading: LoadingController, ) {
   }
 
-  menuButtonClicked() {
-    let actionSheet = this.actionSheetCtrl.create({
-      buttons: [
-        {
-          text: 'Settings',
-          handler: () => {
-            console.log('Settings clicked');
-          }
-        }, {
-          text: 'Cancel',
-          role: 'cancel',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        }
-      ]
-    })
-    actionSheet.present()
-  }
-
   getweather() {
     this.showWeatherInfo = false
     var that = this
-    
+
     if (!this.cityName || this.cityName.trim().length == 0) {
       this.showAlert("", "Enter City." + this.cityName)
       return

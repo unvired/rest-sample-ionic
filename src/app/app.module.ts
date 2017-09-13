@@ -8,7 +8,6 @@ import { HomePage } from '../pages/home/home';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Login } from "../pages/login/login";
-import { Device } from "@ionic-native/device";
 
 @NgModule({
   declarations: [
@@ -29,7 +28,6 @@ import { Device } from "@ionic-native/device";
   providers: [
     StatusBar,
     SplashScreen,
-    Device,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
