@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import { Platform, AlertController } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { UnviredCordovaSDK, LoginParameters, LoginResult, LoginType } from '@ionic-native/unvired-cordova-sdk/ngx';
@@ -18,7 +18,8 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private unviredCordovaSdk: UnviredCordovaSDK,
-    private router: Router
+    private router: Router,
+    private alrtCtrl: AlertController
   ) {
     this.initializeApp();
   }
@@ -42,6 +43,7 @@ export class AppComponent {
       console.log('Result: ' + JSON.stringify(loginResult));
       this.router.navigate(['login'], {queryParams: { isAuthenticationSuccess: loginResult.type }});
     } catch (error) {
+      (await this.alrtCtrl.create({header: 'Error', subHeader: JSON.stringify(error), buttons: [{text: 'Ok'}]})).present();
       console.log('Error on login ' + JSON.stringify(error));
       this.unviredCordovaSdk.logError('AppComponent', 'Initialize', 'Error during login: ' + error);
     }
