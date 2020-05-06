@@ -5,15 +5,25 @@ Ionic sample application integrating with REST based systems
 $ ionic info
 cli packages: (/usr/local/lib/node_modules)
 
-@ionic/cli-utils  : 1.9.2
-ionic (Ionic CLI) : 3.9.2
+Ionic:
+
+   Ionic CLI                     : 5.4.16 (/usr/local/lib/node_modules/ionic)
+   Ionic Framework               : @ionic/angular 5.1.0
+   @angular-devkit/build-angular : 0.803.26
+   @angular-devkit/schematics    : 8.3.26
+   @angular/cli                  : 8.3.26
+   @ionic/angular-toolkit        : 2.2.0
+
+Utility:
+
+   cordova-res (update available: 0.14.0) : 0.12.0
+   native-run                             : 1.0.0
 
 System:
 
-Node : v6.11.2
-npm  : 3.10.10 
-OS   : macOS Sierra
-```
+   NodeJS : v12.16.2 (/usr/local/bin/node)
+   npm    : 6.14.4
+   OS     : macOS Catalina
 
 # Clone Unvired REST Sample Project
 

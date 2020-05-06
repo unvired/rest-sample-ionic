@@ -21,6 +21,10 @@ Pods/
 coverage/
 dist/
 node_modules/
+www/
+platforms/
+plugins/
+resources/
 tmp/
 temp/
 hooks/
