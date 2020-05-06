@@ -5,7 +5,6 @@
 
 .app-name {
     text-align: center;
-    // width: 100% !important;
     color: #2D5F8A;
     text-align: left;
     font-size: 17px;
@@ -16,10 +15,9 @@ ion-button {
     --background: #2D5F8A;
     --border-width: 0.9px;
     --border-radius: 8.0px;
-    --border-color:#D2D7D3; 
+    --border-color:#D2D7D3;
     height: 45px;
     margin-top: 10px;
-    // margin-right: 10px;
 }
 
 ion-input {

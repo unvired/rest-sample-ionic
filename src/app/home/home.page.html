@@ -1,15 +1,10 @@
 <ion-header>
   <ion-toolbar class="container-div">
     <ion-title style="color: white;">Unvired REST Sample</ion-title>
-  </ion-toolbar>    
+  </ion-toolbar>
 </ion-header>
 
 <ion-content class="container-div" class="ion-padding">
-  <!-- <ion-header>
-    <ion-toolbar>
-      <ion-title style="color: white;">Unvired REST Sample</ion-title>
-    </ion-toolbar> 
-  </ion-header> -->
   <ion-input type="text" placeholder="City" [(ngModel)]="cityName" autocapitalize="off"></ion-input>
   <ion-button (click)="getweather()" expand="block">Get Weather</ion-button>
   <ion-list *ngIf="showWeatherInfo" class="info-div">
@@ -25,5 +20,5 @@
       <ion-label class="label">Humidity</ion-label>
       <ion-label class="value">{{weatherHeraderObj.HUMIDITY}}</ion-label>
     </ion-item>
-  </ion-list> 
+  </ion-list>
 </ion-content>

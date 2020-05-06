@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
-import { LoginParameters, LoginResult, UnviredCordovaSDK, LoginListenerType, AuthenticateActivateResult, LoginType,
+import { LoginParameters, UnviredCordovaSDK, LoginListenerType, AuthenticateActivateResult, LoginType,
   AuthenticateAndActivateResultType, AuthenticateLocalResult, AuthenticateLocalResultType } from '@ionic-native/unvired-cordova-sdk/ngx';
-import { AppConstant } from 'src/constants/appConstant';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +22,7 @@ export class LoginPage implements OnInit {
               public alertCtrl: AlertController,
               private loading: LoadingController,
               private unviredCordovaSdk: UnviredCordovaSDK) {
-    // this.isAuthenticationSuccess = this.router.getCurrentNavigation().extras.queryParams.isAuthenticationSuccess;
+    this.isAuthenticationSuccess = this.router.getCurrentNavigation().extras.queryParams.isAuthenticationSuccess;
   }
 
   ngOnInit() {
@@ -34,7 +33,6 @@ export class LoginPage implements OnInit {
   }
 
   login() {
-    // this.router.navigate(['home']);
     if (!this.isAuthenticationSuccess) {
       if (!this.url || this.url.trim().length === 0) {
         this.showAlert('', 'Enter Url.');
@@ -60,23 +58,12 @@ export class LoginPage implements OnInit {
 
   async umpLogin() {
     const loginParameters = new LoginParameters();
-    loginParameters.appName = AppConstant.APPLICATION_NAME;
-    loginParameters.metadataPath = '../assets/metadata.json';
     loginParameters.url = this.url;
     loginParameters.company = this.company;
     loginParameters.username = this.username;
     loginParameters.password = this.password;
     loginParameters.loginType = LoginType.unvired;
-    let loginResult: LoginResult;
-    try {
-      loginResult = await this.unviredCordovaSdk.login(loginParameters);
-      console.log('Result: ' + JSON.stringify(loginResult));
-      } catch (error) {
-      this.showAlert(AppConstant.ERROR, error);
-      this.unviredCordovaSdk.logError('Login Page', 'Initialize', 'Error during login: ' + error);
-    }
-    // console.log(this.isAuthenticationSuccess);
-    switch (loginResult.type) {
+    switch (this.isAuthenticationSuccess) {
       case LoginListenerType.auth_activation_required:
         this.showLaoding();
         // tslint:disable-next-line:max-line-length

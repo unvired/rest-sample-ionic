@@ -3,7 +3,6 @@ import { AlertController, LoadingController, ActionSheetController, Platform } f
 import { UnviredCordovaSDK, RequestType, SyncResult } from '@ionic-native/unvired-cordova-sdk/ngx';
 import { AppConstant } from 'src/constants/appConstant';
 import { WEATHER_HEADER } from 'src/models/WEATHER_HEADER';
-import { isEmptyExpression } from '@angular/compiler';
 
 @Component({
   selector: 'app-home',
@@ -46,13 +45,10 @@ export class HomePage {
     this.showLaoding();
     const insertDb = await this.unviredCordovaSdk.dbInsertOrUpdate('WEATHER_HEADER', weatherHeader, true);
     console.log('Insert data to db -- weather_info page ' + JSON.stringify(insertDb));
-    console.log('Input header: ' + JSON.stringify(data));
     // tslint:disable-next-line:max-line-length
-    if (this.platform.is('ios') || this.platform.is('android'))  {
-      console.log('IOS and Android');
+    if (this.platform.is('ios') || this.platform.is('android')) {
       result = await this.unviredCordovaSdk.syncForeground(RequestType.RQST, data1, '', AppConstant.PA_GET_WEATHER, true);
     } else {
-      console.log('Browser');
       result = await this.unviredCordovaSdk.syncForeground(RequestType.RQST, null, data, AppConstant.PA_GET_WEATHER, true);
     }
     console.log('Response from server: ' + JSON.stringify(result));
@@ -74,7 +70,6 @@ export class HomePage {
   }
 
   async fetchDataFromDb() {
-    // const res = await this.unviredCordovaSdk.dbSelect('WEATHER_HEADER', "CITY = '" + this.cityName + "'");
     const res = await this.unviredCordovaSdk.dbSelect('WEATHER_HEADER', `CITY = '${this.cityName}'`);
     if (res.type === 0) {
       console.log('data from db: ' + JSON.stringify(res.data[0]));
