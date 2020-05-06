@@ -1,5 +1,7 @@
 {
   "name": "rest-sample-ionic",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

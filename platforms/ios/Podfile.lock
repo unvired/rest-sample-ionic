@@ -1,0 +1,24 @@
+PODS:
+  - Cordova (4.5.4)
+  - UnviredCordovaSDK (3.0.177):
+    - Cordova (= 4.5.4)
+    - UnviredSDK (= 3.1.118)
+  - UnviredSDK (3.1.118)
+
+DEPENDENCIES:
+  - UnviredCordovaSDK (~> 3.0.177)
+
+SPEC REPOS:
+  trunk:
+    - Cordova
+    - UnviredCordovaSDK
+    - UnviredSDK
+
+SPEC CHECKSUMS:
+  Cordova: 90a337977b8667a80483f559268c82062b1183da
+  UnviredCordovaSDK: 68054d8db2d768f9ae1c20b13c70bbf66d368a09
+  UnviredSDK: 4a13c62233190799afe24b79127d3f2c270f5764
+
+PODFILE CHECKSUM: 99ef005aaee7eb6fffdf64db15c4149c88b92a86
+
+COCOAPODS: 1.9.1
