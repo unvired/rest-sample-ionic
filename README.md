@@ -41,40 +41,27 @@ In the Terminal app, do a cd into the project folder and execute the following c
 $npm install 
 ```
 
-# To Run the App in iOS
-
-**Install CocoaPods (if not already installed)**
-------------------------------------------------
-
-Install CocoaPods by executing the following command in the Terminal.
-
-```
-$ sudo gem install cocoapods
-```
-
-Note: After you install cocoapods, make sure you set it up by executing the following command in terminal
-
-```
-$ pod setup
-```
+# To Run the App 
 
 **Install Unvired SDK**
 -----------------------
 
-In Terminal, do a cd into ios folder.
+$ ionic cordova plugin add https://github.com/unvired/cordova-plugin-unvired-sdk
+$ npm install @ionic-native/unvired-cordova-sdk
 
-```
-$ cd platforms/ios
-```
+** Add platforms, build and run**
+---------------------------------
+$ ionic cordova platform add Browser/ android/ ios
+$ ionic cordova build browser/ android
+$ ionic cordova run browser/ android
 
-Install Pod by running the following command.
+** To run in ios Platform **
+----------------------------
+$ ionic cordova prepare ios
 
-```
-$ pod install --repo-update
-```
+Now use the /Users/local/rest-sample-ionic/platforms/ios/MyApp.xcworkspace folder in xcode and run
 
 This will set up Unvired REST Sample Project with all the required dependencies.
-
 
 **Using the app**
 ----------------
